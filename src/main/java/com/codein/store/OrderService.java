@@ -1,5 +1,7 @@
 package com.codein.store;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,19 @@ public class OrderService {
         System.out.println("Order Service Created");
         this.paymentService=paymentService;
     }
+
+    @PostConstruct
+    public void init()
+    {
+        System.out.println("OrderService PostConstruct");
+    }
+
+    @PreDestroy
+    public void cleanup()
+    {
+        System.out.println("OrderService PreDestroy");
+    }
+
 
     public void placeOrder()
     {
