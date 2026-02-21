@@ -15,8 +15,9 @@ public class EmailNotificationService implements NotificationService {
     @Value("${mail.port}")
     private String port;
     @Override
-    public void send(String message) {
-        System.out.println("Message Sent via email ! : ");
-        System.out.println(message);
+    public void send(String message, String recipientEmail) {
+        System.out.println("Message Sent via email to "+recipientEmail+" !  ");
+        System.out.println("Message: "+message);
+        System.out.println("Using host: " + host + " on port: " + port);
     }
 }

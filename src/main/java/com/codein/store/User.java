@@ -1,33 +1,33 @@
 package com.codein.store;
 
 public class User {
-    Long id;
-    String email;
-    String Password;
-    String Name;
+    private Long id;
+    private String email;
+    private String password;
+    private String name;
 
-    public void User(Long id ,String email, String Password, String Name)
+    public  User(Long id ,String email, String password, String name)
     {
         this.id=id;
         this.email=email;
-        this.Password=Password;
-        this.Name=Name;
+        this.password=password;
+        this.name=name;
     }
-    public Long getId(Long id)
+    public Long getId()
     {
         return id;
     }
-    public String getEmail(String email)
+    public String getEmail()
     {
         return email;
     }
-    public String getPassword(String Password)
+    public String getPassword()
     {
-        return Password;
+        return password;
     }
-    public String getName(String Name)
+    public String getName()
     {
-        return Name;
+        return name;
     }
 
 
