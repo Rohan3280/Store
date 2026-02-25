@@ -1,5 +1,8 @@
 package com.codein.store;
 
+import com.codein.store.entities.Address;
+import com.codein.store.entities.Profile;
+import com.codein.store.entities.Tag;
 import com.codein.store.entities.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,9 +24,24 @@ public class StoreApplication {
 //        userService.registerUser(new User(1099L,"kk@plaza.com","12345","KK"));
 //        userService.registerUser(new User(1099L,"kk@plaza.com","12345","KK"));
 
-        var user = new User(1L,"name","email","password");
-        user.setName("John");
-        user.setId();
+        var user = User.builder()
+                .name("John")
+                .password("Password")
+                .email("john@email.com")
+                .build();
+
+
+
+           var profile = Profile.builder()
+                           .bio("bio")
+                           .build();
+
+        user.setProfile(profile);
+        profile.setUser(user);
+
+        System.out.println(user);
+
+
 
        // context.close();
     }
