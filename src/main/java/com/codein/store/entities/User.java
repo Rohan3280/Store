@@ -52,7 +52,7 @@ public class User {
 
     @ManyToMany
     @JoinTable(
-            name = "user_tags",
+            name = "users_tags",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id")
 
@@ -62,6 +62,14 @@ public class User {
 
     @OneToOne(mappedBy = "user")
     private Profile profile;
+
+    @ManyToMany
+    @JoinTable(
+            name = "wishlist",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
+    private Set<Product> wishList = new HashSet<>();
 
 
 }
