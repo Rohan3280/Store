@@ -6,6 +6,6 @@ public class UserService {
     public void showEntityStates(){
         var user = User.builder()
                 .name("John Doe")
-                .email
+                .email("john.doe@")
     }
 }
