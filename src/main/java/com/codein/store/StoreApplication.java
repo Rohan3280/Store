@@ -3,6 +3,7 @@ package com.codein.store;
 import com.codein.store.entities.Profile;
 import com.codein.store.entities.User;
 import com.codein.store.repositories.UserRepository;
+import com.codein.store.services.UserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -13,8 +14,8 @@ public class StoreApplication {
     public static void main(String[] args) {
 
         ConfigurableApplicationContext context = SpringApplication.run(StoreApplication.class, args);
-        var repository = context.getBean(UserRepository.class);
-        repository.deleteById(2L);
+        var service = context.getBean(UserService.class);
+        service.showEntityStates();
 
 
 //        var user = User.builder()
