@@ -1,4 +1,5 @@
 package com.codein.store.services;
+import com.codein.store.repositories.ProfileRepository;
 import com.codein.store.repositories.UserRepository;
 
 import com.codein.store.entities.User;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
+    private final ProfileRepository profileRepository;
     private final EntityManager entityManager;
 
     @Transactional
@@ -33,5 +35,10 @@ public class UserService {
             System.out.println("Persistent");
         else
             System.out.println("Transient / Detached");
+    }
+
+    public void showRelatedEntites(){
+        var profile=profileRepository.findById(3L).orElseThrow();
+        System.out.println(profile.getBio());
     }
 }
