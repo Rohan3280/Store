@@ -1,4 +1,5 @@
 package com.codein.store.services;
+import com.codein.store.repositories.AddressRepository;
 import com.codein.store.repositories.ProfileRepository;
 import com.codein.store.repositories.UserRepository;
 
@@ -14,6 +15,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final ProfileRepository profileRepository;
     private final EntityManager entityManager;
+    private final AddressRepository addressRepository;
 
     @Transactional
     public void showEntityStates(){
@@ -37,8 +39,14 @@ public class UserService {
             System.out.println("Transient / Detached");
     }
 
+    @Transactional
     public void showRelatedEntites(){
         var profile=profileRepository.findById(3L).orElseThrow();
         System.out.println(profile.getBio());
     }
+    public void FetchAddress()
+    {
+        addressRepository
+    }
+
 }
