@@ -44,9 +44,12 @@ public class UserService {
         var profile=profileRepository.findById(3L).orElseThrow();
         System.out.println(profile.getBio());
     }
-    public void FetchAddress()
-    {
-        addressRepository
+    public void fetchAddress() {
+        addressRepository.findById(3L).ifPresent(address ->
+                System.out.println("Address: " + address.getCity() + ", " + address.getStreet())
+        );
+        // If no address with id 3 exists, nothing is printed (no exception).
+        // Use an id that exists in your DB, or create an address first.
     }
 
 }
