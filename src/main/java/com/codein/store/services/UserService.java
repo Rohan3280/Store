@@ -1,4 +1,5 @@
 package com.codein.store.services;
+import com.codein.store.entities.Address;
 import com.codein.store.repositories.AddressRepository;
 import com.codein.store.repositories.ProfileRepository;
 import com.codein.store.repositories.UserRepository;
@@ -50,6 +51,20 @@ public class UserService {
         );
         // If no address with id 3 exists, nothing is printed (no exception).
         // Use an id that exists in your DB, or create an address first.
+    private void persisRelated(){
+        var user = User.builder()
+                .name("John Doe")
+                .email("john.doe@email.com")
+                .password("password")
+                .build();
+        var address = Address.builder()
+                .street("street")
+                .city("city")
+                .state("state")
+                .zip("zip")
+                .build();
+        user.addAddress(address);
+        }
     }
 
 }
