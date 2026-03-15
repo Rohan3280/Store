@@ -51,7 +51,10 @@ public class UserService {
         );
         // If no address with id 3 exists, nothing is printed (no exception).
         // Use an id that exists in your DB, or create an address first.
-    private void persisRelated(){
+    }
+
+    @Transactional
+    public void persistRelated() {
         var user = User.builder()
                 .name("John Doe")
                 .email("john.doe@email.com")
@@ -64,7 +67,6 @@ public class UserService {
                 .zip("zip")
                 .build();
         user.addAddress(address);
-        }
+        userRepository.save(user);
     }
-
 }

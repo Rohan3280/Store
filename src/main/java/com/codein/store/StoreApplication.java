@@ -15,7 +15,7 @@ public class StoreApplication {
 
         ConfigurableApplicationContext context = SpringApplication.run(StoreApplication.class, args);
         var service = context.getBean(UserService.class);
-        service.fetchAddress();
+        service.persistRelated();
 
 
 //        var user = User.builder()
