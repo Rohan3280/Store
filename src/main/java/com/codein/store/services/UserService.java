@@ -66,6 +66,7 @@ public class UserService {
                 .state("state")
                 .zip("zip")
                 .build();
+        
         user.addAddress(address);
         userRepository.save(user);
     }
